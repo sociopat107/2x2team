@@ -3,6 +3,7 @@ from pyqrcode import QRCode
 import sys
 from PIL import Image
 from pyzbar.pyzbar import decode
+import uuid
 
 
 def gen_qrcode(txt,rez):
@@ -22,6 +23,8 @@ def scan_qrcode(img):
     txt = data[0].data.decode('ascii')
     return txt
 
+def gen_random_hash_for_order():
+    return uuid.uuid4().hex
 
 def main():
     #Example generate qr-code with first argument string and second png filename

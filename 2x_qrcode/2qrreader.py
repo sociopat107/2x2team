@@ -14,17 +14,17 @@ def gen_qrcode(txt,rez):
 
 
 def scan_qrcode(img):
+    #Decoding qr-image
     data = decode(Image.open('img'))
     print(data)
 
-
-
+    #return rezult
+    txt = data[0].data.decode('ascii')
     return txt
 
 
-
 def main():
-    #Example generate qr-code
+    #Example generate qr-code with first argument string and second png filename
     gen_qrcode(sys.argv[1],sys.argv[2])
 
 if __name__ == "__main__":

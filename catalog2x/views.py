@@ -6,9 +6,8 @@ from flask.ext.admin import Admin, BaseView, expose, AdminIndexView
 from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.admin.contrib.fileadmin import FileAdmin
 
-import requests
 import os.path as op
-from app import app,db
+from . import app,db
 from models import User
 
 from functools import wraps

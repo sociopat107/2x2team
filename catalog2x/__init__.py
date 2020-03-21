@@ -1,7 +1,7 @@
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.login import LoginManager
-from flask.ext.login import AnonymousUserMixin
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+from flask_login import AnonymousUserMixin
 
 
 class Anonymous(AnonymousUserMixin):
@@ -31,6 +31,5 @@ login_manager.anonymous_user = Anonymous
 def load_user(id):
     return User.query.get(int(id))
 
-
-from app.models import User
-from app import views
+from .models import User
+from . import views

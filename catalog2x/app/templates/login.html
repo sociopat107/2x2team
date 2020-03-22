@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a align=center> <h1>Вход на сайт</h1> </a>
+<form action="" method="post" name="login" align=center>
+    <p>
+        Введите логин:<br>
+        {{form.login(size=80)}}<br>
+	Введите пасс:<br>
+        {{form.password(size=80)}}<br>
+    </p>
+    <p><input type="submit" value="Клик"></p>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="float:left;"> <h2> Ваша корзина <h2> </div>
+<div style="float:right"> <a href='/clear'> <h3> Очистить корзину <h3> </a> </div>
+
+<br><br>
+{% if session['korzina'] %}
+{%- set t=0 -%}
+    {% for post in [session['korzina']] %}
+    {% if t == 0 %}
+    <tr>
+    {% endif %}
+    {% if t == 3 %}
+    </tr>
+    {%- set t=0 -%}
+    {% endif %}
+    <td>
+      <a href="/tovar/{{ post.id }}"> <h2> {{ post.name }} </h2></a>
+      <img src="/static/{{ post.photo }}" width="300" height="150"> <br>
+      <h3> Цена товара: {{ post.price }}<h3>
+    </td>
+    {%- set t=t+1 -%}
+    {% endfor %}
+
+{% endif %}
+
+
+{% endblock %}

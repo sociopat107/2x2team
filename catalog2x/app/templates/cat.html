@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+{% if g.category.id %}
+<h2>Идентификатор Категории - "{{g.category.id}}"</h2>
+
+<p>
+  <h3> {{ g.category.name }} </h3>
+  <img src="/static/{{ g.category.photo }}" width="600" height="350"> <br>
+
+  <h2>Каталог товаров в данном разделе</h2>
+<p><table>
+
+    {%- set t=0 -%}
+    {% for post in posts %}
+    {% if t == 0 %}
+    <tr>
+    {% endif %}
+    {% if t == 3 %}
+    </tr>
+    {%- set t=0 -%}
+    {% endif %}
+    <td>
+      <a href="/tovar/{{ post.id }}"> <h4> {{ post.name }} </h4></a>
+      <img src="/static/{{ post.photo }}" width="300" height="150"> <br>
+      <h6> Цена товара: {{ post.price }}<h6>
+      <a href="/tovar_add/{{ post.id }}"> <img src="/static/button.jpg" width="200" height="70"> </a>
+    </td>
+    {%- set t=t+1 -%}
+    {% endfor %}
+  </tr>
+</table></p>
+<br><br><br>
+
+  
+</p>
+{% else %}
+<h2>Категории с идентификатором "{{id}}" не существует</h2>
+
+{% endif %}
+{% endblock %}

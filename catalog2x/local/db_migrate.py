@@ -1,0 +1,1 @@
+/home/predator/hackuniversity/bitservice/flask3/db_migrate.py

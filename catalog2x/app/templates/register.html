@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a align=center> <h1>Регистрация</h1> </a>
+<form action="" method="post" name="login" align=center>
+    <p>
+        Введите желаемый логин:<br>
+        {{form.login(size=80)}}<br>
+	Введите желаемый пароль:<br>
+        {{form.password(size=80)}}<br>
+	Введите ваш email:<br>
+        {{form.email(size=80)}}<br>
+    </p>
+    <p><input type="submit" value="Клик"></p>
+</form>
+{% endblock %}

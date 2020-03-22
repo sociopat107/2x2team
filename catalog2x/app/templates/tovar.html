@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% if g.tovar.id %}
+<h2>Идентификатор товара - "{{g.tovar.id}}"</h2>
+
+<p>
+  <h3> {{ g.tovar.name }} </h3>
+  <img src="/static/{{ g.tovar.photo }}" width="600" height="350"> <br>
+  <h2> Цена товара: {{ g.tovar.price }}<h2>
+</p>
+{% else %}
+<h2>Товар с идентификатором "{{id}}" не существует</h2>
+
+{% endif %}
+{% endblock %}

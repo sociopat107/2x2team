@@ -5,6 +5,7 @@ from PIL import Image
 from pyzbar.pyzbar import decode
 import uuid
 
+LOGO_IMAGE = 'crop.jpg'
 
 def gen_qrcode(txt,rez):
     # Generate QR code from string
@@ -12,6 +13,16 @@ def gen_qrcode(txt,rez):
 
     # save rezult
     url.png(rez, scale = 8)
+
+    im = Image.open(rez)
+    im = im.convert("RGBA")
+    logo = Image.open(LOGO_IMAGE)
+    box = (120,120,200,200)
+    im.crop(box)
+    region = logo
+    region = region.resize((box[2] - box[0], box[3] - box[1]))
+    im.paste(region,box)
+    im.save(rez)
 
 
 def scan_qrcode(img):
